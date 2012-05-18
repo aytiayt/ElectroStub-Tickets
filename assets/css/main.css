@@ -1,0 +1,308 @@
+
+
+
+.ui-mobile, 
+.ui-mobile .ui-page, 
+.ui-mobile [data-role="page"],
+.ui-mobile [data-role="dialog"], 
+.ui-page, 
+.ui-mobile 
+.ui-page-active {
+      /* overflow: hidden; */
+      -webkit-backface-visibility: hidden;
+}
+
+
+
+/* Alert */
+#alertContent { margin: 10px auto; padding: 15px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; background: #fff; -moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6); -webkit-box-shadow: 0px 0px 12px rgba(0,0,0,.6); box-shadow: 0px 0px 12px rgba(0,0,0,.6); }
+#alertContent h3 { font-size: 22px; font-weight: bold; }
+#alertContent p { margin: 10px auto 20px auto; }
+
+
+
+/* Loader */
+.ui-loader { background-color: #fff!important; top: 0!important; left: 0!important; width: 100%!important; height: 100%!important; margin: 0!important; border-radius: 0!important; padding: 50%!important; }
+.ui-loader .ui-icon-loading { margin-left: -22px; }
+
+
+/* footer icons */
+.ui-footer .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+.ui-footer .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+#nav-events .ui-icon { background: url(../img/calendar.png) 50% 50% no-repeat; background-size: 23px 26px; }
+#nav-events.ui-btn-up-b .ui-icon,
+#nav-events.ui-btn-down-b .ui-icon,
+#nav-events.ui-btn-hover-b .ui-icon { background-image: url(../img/calendar-inverse.png); }
+#nav-venues .ui-icon { background: url(../img/bank.png) 50% 50% no-repeat; background-size: 26px 23px;  }
+#nav-venues.ui-btn-up-b .ui-icon,
+#nav-venues.ui-btn-down-b .ui-icon,
+#nav-venues.ui-btn-hover-b .ui-icon { background-image: url(../img/bank-inverse.png);  }
+#nav-artists .ui-icon { background: url(../img/user.png) 50% 50% no-repeat;  background-size: 24px 22px; }
+#nav-artists.ui-btn-up-b .ui-icon,
+#nav-artists.ui-btn-down-b .ui-icon,
+#nav-artists.ui-btn-hover-b .ui-icon { background-image: url(../img/user-inverse.png); }
+#nav-account .ui-icon { background: url(../img/id-card.png) 50% 50% no-repeat;  background-size: 24px 18px; }
+#nav-account.ui-btn-up-b .ui-icon,
+#nav-account.ui-btn-down-b .ui-icon,
+#nav-account.ui-btn-hover-b .ui-icon { background-image: url(../img/id-card-inverse.png); }
+
+
+
+/* Show List */
+#upcomingShows h3.ui-li-heading { margin: 0.3em 0; }
+#upcomingShows p.ui-li-desc span.showDate { color: #2489CE; }
+
+
+/* Show Details Page */
+#showDisplay { padding: 0; }
+div.showHeader,
+div.showDetails { 
+	padding: 15px; 
+	-moz-box-shadow: 0 0 15px #bbb inset; 
+	-webkit-box-shadow: 0 0 15px #bbb inset; 
+	box-shadow: 0 0 15px #bbb inset;
+	background: #dfdfdf /*{c-bhover-background-color}*/;
+	font-weight: bold;
+	color: #2F3E46 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 1px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #ffffff /*{c-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6 /*{c-bhover-background-start}*/), to( #e0e0e0 /*{c-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/);
+ }
+div.showDetails { font-weight: normal; font-size: 14px; }
+div.headerInfo { margin: 0 0 0 85px; }
+div.showHeader img { width: 73px; height: 73px; border: 1px solid #fff; float: left; }
+div.showHeader h3 { margin: 0 0 5px 0; }
+div.showHeader h4 { margin: 0; color: #2489CE; }
+div.venue { clear: left; padding: 10px 0 0 0; position: relative; }
+div.venue div.map { position: absolute; top: 20px; right: 0; }
+div.showHeader p { line-height: 18px; margin: 0; border-top: 1px dashed #aaa; padding: 10px 110px 0 0; }
+div.showHeader p a.venueLink { text-decoration: none; color: #2F3E46; }
+div.showHeader p.address { font-size: 12px; line-height: 16px; padding: 0 110px 0 0; border-top: none; }
+div.showCart { padding: 15px; }
+div.showCart table { width: 100%; border-collapse: collapse; }
+div.showCart th { text-align: left; }
+div.showCart table thead th { text-align:left; }
+div.showCart table th, 
+div.showCart table td { font-size: 14px; padding: 3px 2px 3px 0; border-bottom: 1px solid #ddd; } 
+div.showCart table tfoot th { font-size: 16px; text-align: right; }
+div.showCart table tfoot th,
+div.showCart table tfoot td { border-bottom: none; }
+div.showCart table tfoot #buyPageTotal { font-size: 16px; text-align: left; font-weight: bold; color: #2489CE; }
+
+div.showArtists { padding: 15px; }
+#showArtistList { margin-top: 15px; }
+
+
+
+
+
+/* Checkout Page */
+#cartDisplay input.ui-input-text { width: 92%; }
+#cartDisplay .ui-grid-a input.ui-input-text { width: 82%; }
+#cartDisplay .ui-grid-a div.ui-select { width: 92%; }
+#cartDisplay { padding: 0; }
+#shoppingCart,
+#paymentDetails,
+#ticketDetails {
+	padding: 15px; 
+	-moz-box-shadow: 0 0 15px #bbb inset; 
+	-webkit-box-shadow: 0 0 15px #bbb inset; 
+	box-shadow: 0 0 15px #bbb inset;
+	background: #dfdfdf /*{c-bhover-background-color}*/;
+	font-weight: normal;
+	color: #2F3E46 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 1px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #ffffff /*{c-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6 /*{c-bhover-background-start}*/), to( #e0e0e0 /*{c-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/);
+
+}
+#cartDisplay h2 {
+	margin: 0;
+	padding: .5em 15px;
+	font-size: 16px;
+	border: 1px solid #456f9a /*{b-bar-border}*/;
+	background: #5e87b0 /*{b-bar-background-color}*/;
+	color: #fff /*{b-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{b-bar-shadow-x}*/ 1px /*{b-bar-shadow-y}*/ 1px /*{b-bar-shadow-radius}*/ #3e6790 /*{b-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #6facd5 /*{b-bar-background-start}*/), to( #497bae /*{b-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/);
+}
+
+#shoppingCart table { width: 100%; border-collapse: collapse; }
+#shoppingCart td { font-size: 14px; padding: 3px; border-top: 1px solid #ccc; }
+#shoppingCart td.value { text-align: right; }
+#shoppingCart tr.total td { font-size: 20px; font-weight: bold; padding-top: 5px; border-top: 1px solid #aaa; }
+
+#shoppingCart h4 { color: #2489CE; margin: 0; }
+#shoppingCart p { font-size: 14px; margin: 0 0 10px 0; }
+#cartDisplay #couponCode { width: 63%; display: inline-block;  margin: 15px 0 0 0; }
+
+.messageBox { margin: 0 0 10px 0; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.messageBox p { font-size: 16px; font-weight: bold; text-align: center; height: 30px; line-height: 30px; }
+
+
+
+
+
+
+
+
+
+/* Artist Details Page */
+#artistDisplay { padding: 0; }
+#artistDisplay div.artistHeader {
+	padding: 15px; 
+	height: 100px;
+	-moz-box-shadow: 0 0 15px #bbb inset; 
+	-webkit-box-shadow: 0 0 15px #bbb inset; 
+	box-shadow: 0 0 15px #bbb inset;
+	background: #dfdfdf /*{c-bhover-background-color}*/;
+	font-weight: bold;
+	color: #2F3E46 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 1px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #ffffff /*{c-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6 /*{c-bhover-background-start}*/), to( #e0e0e0 /*{c-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/);
+}
+#artistDisplay div.artistHeader img { width: 98px; height: 98px; border: 1px solid #fff; float: left; margin: 0 10px 0 0; }
+#artistDisplay div.artistHeader h3 { margin: 0 0 5px 0; }
+#artistDisplay div.artistHeader br { clear: left; }
+#artistDisplay div.artistDetails { padding: 15px; }
+#artistDisplay div.artistDetails p { font-size: 14px; }
+
+
+
+
+
+
+
+
+
+/* Venue Details Page */
+#venueDisplay { padding: 0; }
+#venueDisplay div.venueHeader {
+	padding: 15px; 
+	-moz-box-shadow: 0 0 15px #bbb inset; 
+	-webkit-box-shadow: 0 0 15px #bbb inset; 
+	box-shadow: 0 0 15px #bbb inset;
+	background: #dfdfdf /*{c-bhover-background-color}*/;
+	font-weight: normal;
+	color: #2F3E46 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 1px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #ffffff /*{c-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6 /*{c-bhover-background-start}*/), to( #e0e0e0 /*{c-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/);
+}
+#venueDisplay div.venueHeader img { width: 98px; height: 98px; border: 1px solid #fff; float: left; margin: 0 10px 0 0; }
+#venueDisplay div.venueHeader h3 { margin: 0 0 5px 0; color: #2489CE; }
+#venueDisplay div.venueHeader div.venueAddressContainer { clear: left; padding: 10px 0 0 0; }
+#venueDisplay div.venueHeader div.map { padding: 10px 0 0 0; border-top: 1px dashed #ccc; margin: 10px 0 0 0; }
+#venueDisplay div.venueHeader p.address { border-top: 1px dashed #ccc; font-size: 14px; margin: 0; padding: 10px 0 0 0; }
+#venueDisplay div.venueDetails { padding: 15px; }
+#venueDisplay div.venueDetails p { font-size: 14px; }
+
+
+
+
+
+/* Show List */
+#artistDisplay div.artistDetails h3.ui-li-heading { margin: 0.3em 0; }
+#artistDisplay div.artistDetails p.ui-li-desc span.showDate { color: #2489CE; }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ticket Details */
+#confirmationDisplay,
+#ticketDisplay { padding: 0; }
+#confirmationDisplay h1 { margin: 0; padding: 15px; font-size: 18px; }
+div.ticketDetails div.ticketContent {
+	padding: 15px; 
+	-moz-box-shadow: 0 0 15px #bbb inset; 
+	-webkit-box-shadow: 0 0 15px #bbb inset; 
+	box-shadow: 0 0 15px #bbb inset;
+	background: #dfdfdf /*{c-bhover-background-color}*/;
+	font-weight: normal;
+	color: #2F3E46 /*{c-bhover-color}*/;
+	text-shadow: 0 /*{c-bhover-shadow-x}*/ 1px /*{c-bhover-shadow-y}*/ 0 /*{c-bhover-shadow-radius}*/ #ffffff /*{c-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #f6f6f6 /*{c-bhover-background-start}*/), to( #e0e0e0 /*{c-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #f6f6f6 /*{c-bhover-background-start}*/, #e0e0e0 /*{c-bhover-background-end}*/);
+
+}
+div.ticketDetails h2 {
+	margin: 0;
+	padding: .5em 15px;
+	font-size: 16px;
+	border: 1px solid #456f9a /*{b-bar-border}*/;
+	background: #5e87b0 /*{b-bar-background-color}*/;
+	color: #fff /*{b-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{b-bar-shadow-x}*/ 1px /*{b-bar-shadow-y}*/ 1px /*{b-bar-shadow-radius}*/ #3e6790 /*{b-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #6facd5 /*{b-bar-background-start}*/), to( #497bae /*{b-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/);
+}
+div.ticketDetails p { font-size: 14px; margin: 0 0 5px 0; }
+div.barcodeContainer { background: #fff; box-shadow: 0 0 15px #999; margin: 10px 0 0 0; }
+div.barcodeContainer img { margin: 0 auto; width: 100%; }
+
+
+
+/* Search */
+#searchEventsDisplay .ui-input-text { width: 94%; }
+#searchEventsDisplay .ui-grid-a .ui-input-datebox,
+#searchEventsDisplay .ui-grid-a .ui-input-text { width: 87%; }
+#searchEventsDisplay .localnav li { float: left; }
+#searchEventsDisplay .localnav li .ui-btn-text { font-size: 14px; }
+#searchEventsDisplay .localnav li .ui-btn-icon-left .ui-btn-inner { padding: .6em 15px .6em 35px; }
+#searchZipContainer { display: none; }
+#showSearchResults h3.ui-li-heading { margin: 0.3em 0; }
+#showSearchResults p.ui-li-desc span.showDate { color: #2489CE; }
+
+#artistSearchList,
+#venueSearchList { margin-top: 10px; }
+
+
+
+
+/* Account */
+#accountDisplay h3 { margin: 0; }
+#accountDisplay p { margin: 0; }
+#accountList { margin-top: 15px; }
+
+#accountForm .ui-field-contain { padding: 0.4em 0; }
+#accountForm .ui-grid-a input.ui-input-text { width: 82%; }

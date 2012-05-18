@@ -1,0 +1,648 @@
+<!doctype html>
+<html>
+<head>
+	<title>LaughStub Tickets</title>
+
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/jquery.mobile.theme.css" />
+    <link rel="stylesheet" href="assets/css/jquery.mobile.structure-1.1.0.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery.mobile.datebox-1.0.1.min.css" />
+    
+    <link rel="stylesheet" href="assets/css/main.css" /> 
+
+	<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="assets/js/phonegap.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="assets/js/validation/cfform.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/jquery/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="assets/js/jquery/jquery.mobile-1.1.0.min.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="assets/js/jquery/jquery.mobile.datebox-1.0.1.min.js" type="text/javascript" charset="utf-8"></script> 
+
+</head>
+
+<body>
+
+
+	<!-- Top Upcoming Events -->
+    <div id="upcomingPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" onclick="loadUpcomingShows();" data-icon="refresh" data-iconpos="notext">Refresh</a>
+            <h1>Top Events</h1>
+            <a href="#searchEventsPage" class="ui-btn-right" data-icon="search">Search</a>
+        </div>
+    
+        <div data-role="content" id="upcomingShows"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar" data-theme="b">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Top Upcoming Events -->
+
+
+
+
+
+	<!-- Top Artists -->
+    <div id="artistsPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" onclick="loadTopArtists();" data-icon="refresh" data-iconpos="notext">Refresh</a>
+            <h1>Top Artists</h1>
+            <a href="#searchArtistsPage" class="ui-btn-right" data-icon="search">Search</a>
+        </div>
+    
+        <div data-role="content" id="topArtists"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user" data-theme="b">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Top Artists -->
+
+
+
+
+
+	<!-- Top Venues -->
+    <div id="venuesPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" onclick="loadTopVenues();" data-icon="refresh" data-iconpos="notext">Refresh</a>
+            <h1>Top Venues</h1>
+            <a href="#searchVenuesPage" class="ui-btn-right" data-icon="search">Search</a>
+        </div>
+    
+        <div data-role="content" id="topVenues"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building" data-theme="b">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Top Artists -->
+
+
+
+
+
+	<!-- Search Events -->
+    <div id="searchEventsPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#upcomingPage" data-icon="star">Top</a>
+            <h1>Search</h1>
+        </div>
+    
+        <div data-role="content" id="searchEventsDisplay">
+        	
+            <div class="content-primary">
+                
+                <form id="searchEventForm">
+                
+                    <ul data-role="controlgroup" data-type="horizontal" class="localnav">
+                        <li><a href="#" id="searchLocationCurrent" onclick="toggleSearchLocation('current');" data-role="button" class="ui-btn-active" data-icon="marker">Current Location</a></li>
+                        <li><a href="#" id="searchLocationZip" onclick="toggleSearchLocation('zip');" data-role="button" data-icon="check">Zipcode</a></li>
+                    </ul> 
+                    <input type="hidden" name="searchLocation" id="searchLocation" value="current" />
+                    
+                    <div id="searchZipContainer" data-role="fieldcontain" class="ui-hide-label">
+                    	<div class="ui-grid-a">
+                            <div class="ui-block-a">
+                            	<input type="text" name="searchZip" id="searchZip" value="" placeholder="Zip Code" />
+                            </div>
+                            <div class="ui-block-b">
+                            	<select name="searchZipRadius" id="searchZipRadius">
+                                	<option value="10">10 Mi.</option>
+                                	<option value="25">25 Mi.</option>
+                                	<option value="50">50 Mi.</option>
+                                	<option value="100">100 Mi.</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="searchNameArtist">Search Terms:</label>
+                        <input type="text" name="searchNameArtist" id="searchNameArtist" value="" placeholder="Event Name or Artist" />
+                    </div>
+                    
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                            <input type="date" name="searchDateFrom" id="searchDateFrom" value="" placeholder="Date From" data-role="datebox" data-options="{'dateFormat': 'mm/dd/YYYY'}" />
+                            </div>
+                            <div class="ui-block-b">
+                            <input type="date" name="searchDateTo" id="searchDateTo" value="" placeholder="Date To" data-role="datebox" data-options="{'dateFormat': 'mm/dd/YYYY'}" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="button" name="searchShowsBtn" id="searchShowsBtn" onclick="searchShows();" value="Search" data-theme="b" />
+                    
+                </form>
+            
+                <div id="showSearchResults"></div>
+            
+            </div>
+            
+        </div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar" data-theme="b">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Search Events -->
+
+
+
+
+
+
+	<!-- Search Artists -->
+    <div id="searchArtistsPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#artistsPage" data-icon="star">Top</a>
+            <h1>Search</h1>
+        </div>
+    
+        <div data-role="content" id="searchArtistsDisplay">
+        	
+            <div class="content-primary">
+                
+                <form id="searchArtistForm">
+                    <label for="searchArtistName">Search Terms:</label>
+                    <input type="text" name="searchArtistName" id="searchArtistName" value="" placeholder="Artist Name" />
+                    <input type="button" name="searchArtistsBtn" id="searchArtistsBtn" onclick="searchArtists();" value="Search" data-theme="b" />
+                </form>
+            
+                <div id="artistSearchResults"></div>
+            
+            </div>
+            
+        </div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user" data-theme="b">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Search Artists -->
+
+
+
+
+
+	<!-- Search Venues -->
+    <div id="searchVenuesPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#venuesPage" data-icon="star">Top</a>
+            <h1>Search</h1>
+        </div>
+    
+        <div data-role="content" id="searchVenuesDisplay">
+        	
+            <div class="content-primary">
+                
+                <form id="searchVenueForm">
+                    <input type="text" name="searchVenueName" id="searchVenueName" value="" placeholder="Venue Name or City" />
+                    <input type="button" name="searchVenuesBtn" id="searchVenuesBtn" onclick="searchVenues();" value="Search" data-theme="b" />
+                </form>
+            
+                <div id="venueSearchResults"></div>
+            
+            </div>
+            
+        </div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building" data-theme="b">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Search Venues -->
+
+
+
+
+
+	<!-- Show Page -->
+    <div id="showPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Details</h1>
+        </div>
+    
+        <div data-role="content" id="showDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar" data-theme="b">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Show Page -->
+
+
+
+
+
+	<!-- Cart Page -->
+    <div id="cartPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Checkout</h1>
+        </div>
+    
+        <div data-role="content" id="cartDisplay">
+        
+        	<h2>Order Details</h2>
+        	<div id="shoppingCart"></div>
+        
+        	<form id="checkoutForm">
+            
+            	<input type="hidden" name="checkoutShowTierList" id="checkoutShowTierList" value="" />
+            	<input type="hidden" name="checkoutShowTierIDList" id="checkoutShowTierIDList" value="" />
+            	<input type="hidden" name="checkoutShowTierQtyList" id="checkoutShowTierQtyList" value="" />
+            	<input type="hidden" name="checkoutShowTimingID" id="checkoutShowTimingID" value="0" />
+            	<input type="hidden" name="checkoutCouponID" id="checkoutCouponID" value="0" />
+            	<input type="hidden" name="checkoutTotal" id="checkoutTotal" value="0" />
+            	<input type="hidden" name="checkoutQty" id="checkoutQty" value="0" />
+                
+                
+                <h2>Personal Information</h2>
+                <div id="ticketDetails">
+                
+                    <label for="firstName">Name</label>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input type="text" name="firstName" id="firstName" onkeyup="updateCCName();" value="" placeholder="First Name" />
+                        </div>
+                        <div class="ui-block-b">
+                            <input thype="text" name="lastName" id="lastName" onkeyup="updateCCName();" value="" placeholder="Last Name" />
+                        </div>
+                    </div>
+                    <label for="emailAddress">Email</label>
+                    <input type="email" name="emailAddress" id="emailAddress" value="" placeholder="me@email.com" />
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" value="" placeholder="XXX-XXX-XXXX" />
+                
+                </div>
+                
+                <h2>Payment Information</h2>
+                <div id="paymentDetails">
+                    
+                    <label for="cardName">Name on Card</label>
+                    <input thype="text" name="cardName" id="cardName" value="" />
+                
+                    <label for="cardNumber">Card Number</label>
+                    <input type="tel" name="cardNumber" id="cardNumber" value="" maxlength="16" />
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <label for="expMo">Expiration</label>
+                            <select name="expMo" id="expMo">
+                                <option value="1">1 - Jan</option>
+                                <option value="2">2 - Feb</option>
+                                <option value="3">3 - Mar</option>
+                                <option value="4">4 - Apr</option>
+                                <option value="5">5 - May</option>
+                                <option value="6">6 - Jun</option>
+                                <option value="7">7 - Jul</option>
+                                <option value="8">8 - Aug</option>
+                                <option value="9">9 - Sep</option>
+                                <option value="10">10 - Oct</option>
+                                <option value="11">11 - Nov</option>
+                                <option value="12">12 - Dec</option>
+                            </select>
+                        </div>
+                        <div class="ui-block-b">
+                            <label for="expYr">&nbsp;</label>
+                            <select name="expYr" id="expYr"></select>
+                        </div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <label for="billingZip">Billing Zipcode</label>
+                            <input thype="text" name="billingZip" id="billingZip" value="" />
+                        </div>
+                        <div class="ui-block-b">
+                            <label for="cardCVV">CVV</label>
+                            <input type="tel" name="cardCVV" id="cardCVV" value="" maxlength="4" />
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="ui-body ui-body-a">
+                
+                    <input type="button" name="completeOrder" id="completeOrder" onclick="doCheckout();" value="Complete Order" data-theme="b" />
+                    
+                    <h6>By Clicking "Complete Order" You Agree to Our <a href="#purchasePolicy">Purchase Policy.</a></h6>
+                
+                </div>
+        	
+            </form>
+        
+        </div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Show Page -->
+
+
+
+
+
+	<!-- Confirmation Page -->
+    <div id="confirmationPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Confirmation</h1>
+        </div>
+    
+        <div data-role="content" id="confirmationDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Confirmation Page -->
+
+
+
+
+
+	<!-- Ticket Page -->
+    <div id="ticketPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Ticket Details</h1>
+        </div>
+    
+        <div data-role="content" id="ticketDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard" data-theme="b">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Ticket Page -->
+
+
+
+
+
+	<!-- Order History Page -->
+    <div id="orderHistoryPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Order History</h1>
+        </div>
+    
+        <div data-role="content" id="orderHistoryDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard" data-theme="b">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Order History Page -->
+
+
+
+
+	<!-- Venue Page -->
+    <div id="venuePage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Venue Info</h1>
+        </div>
+    
+        <div data-role="content" id="venueDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building" data-theme="b">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Venue Page -->
+
+
+
+
+
+	<!-- Artist Page -->
+    <div id="artistPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Artist Profile</h1>
+        </div>
+    
+        <div data-role="content" id="artistDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user" data-theme="b">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Artist Page -->
+
+
+
+
+
+
+	<!-- Account Page -->
+    <div id="accountPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" id="accountHeader">
+            <h1>My Account</h1>
+        </div>
+    
+        <div data-role="content" id="accountDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard" data-theme="b">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Account Page -->
+
+
+
+
+
+
+	<!-- Account Edit Page -->
+    <div id="accountEditPage" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" id="accountHeader">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Edit Account</h1>
+        </div>
+    
+        <div data-role="content" id="accountEditDisplay"></div>
+        
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="#upcomingPage" id="nav-events" data-icon="calendar">Events</a></li>
+                    <li><a href="#venuesPage" id="nav-venues" data-icon="building">Venues</a></li>
+                    <li><a href="#artistsPage" id="nav-artists" data-icon="user">Artists</a></li>
+                    <li><a href="#accountPage" id="nav-account" data-icon="idcard" data-theme="b">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End of Edit Account Page -->
+
+
+
+
+
+
+	<!-- Purchase Policy -->
+    <div id="purchasePolicy" data-role="page">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a href="#" data-rel="back" data-icon="arrow-l">Back</a>
+            <h1>Purchase Policy</h1>
+        </div>
+    
+        <div data-role="content" id="purchasePolicyContent"></div>
+        
+    </div>
+    <!-- End of Location Page -->
+
+
+
+    <!--- Alert Box --->
+    <div data-role="page" data-theme="b" id="alertBox">
+        <div data-role="content">
+            <div id="alertContent">
+                <h3></h3>
+                <p></p>
+                <a href="#" data-role="button" data-icon="check" data-rel="back">OK</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
